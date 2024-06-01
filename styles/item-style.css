@@ -1,0 +1,159 @@
+main {
+  display: grid;
+  justify-content: center;
+}
+
+#info {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tableContainer {
+  width: 40vw;
+  margin-right: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 20px;
+
+}
+
+.table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table td {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.item-info a {
+  color: blue;
+}
+
+.item-info a:hover {
+  cursor: pointer;
+}
+
+
+.table tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.item-info {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 30vw;
+  background-color: #f2f2f2;
+  max-height: 80vh;
+}
+
+.item-description {
+  font-size: 1em;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.hide {
+  display: none;
+}
+
+.magic-source,
+.mundane-source {
+  font-size: 1rem;
+  padding: 0;
+
+}
+
+.common {
+  color: #1eff00
+}
+
+.uncommon {
+  color: #0070dd;
+}
+
+.rare {
+  color: #a335ee;
+}
+
+.very-rare {
+  color: #ff8000;
+}
+
+.legendary {
+  color: rgb(184, 72, 72);
+}
+
+.artifact {
+  color: #e5cc80;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .tableContainer {
+    grid-area: table;
+  }
+
+  .item-info {
+    grid-area: info;
+  }
+
+  #info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "table"
+      "info";
+  }
+
+  .tableContainer {
+    width: 90vw;
+    margin-right: 0;
+  }
+
+  .item-info {
+    width: 90vw;
+    max-height: 60vh;
+  }
+
+  .tableContainer {
+    max-height: 30vh;
+  }
+
+  .mundaneTable tr>*:nth-child(3) {
+    display: none;
+  }
+
+  .magicTable tr>*:nth-child(2) {
+    display: none;
+  }
+}
+
+#nav-bar {
+  background-color: #a00404 !important;
+}
+
+.nav-item a {
+  font-size: 1.5rem;
+}

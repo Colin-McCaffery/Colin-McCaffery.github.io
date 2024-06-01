@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #fffcf4;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    position: relative;
+}
+
+#footer-text {
+    font-size: 10pt;
+    margin: 0;
+}
+
+#footer-link {
+    font-size: 10pt;
+    margin: 0;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+#home-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: calc(100vh - 80px);
+}
+
+
+
+.back-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+main ul,
+.sidebar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline-start: 0px;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+main li,
+.sidebar li {
+    text-align: center;
+    height: 100px;
+}
+
+main a,
+.sidebar a {
+    color: #000000;
+    font-size: 40pt;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+main a:hover,
+.sidebar a:hover {
+    background-color: #cccccc;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    color: #595959;
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    clip-path: polygon(100% 0, 100% 31%, 0 80%, 0 0);
+    width: 150px;
+    height: 400px;
+    background: #a00404;
+    transition: clip-path 1s ease, width 1s ease, height 1s ease;
+    position: fixed;
+    z-index: 2;
+}
+
+.sidebar.active {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    width: 600px;
+    height: 100vh;
+}
+
+#sidebar-button {
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+    z-index: 3;
+}
+
+#main-dice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    z-index: 1;
+}
+
+.dice-container {
+    height: 135px;
+    margin-top: 20px;
+}
+
+#dice-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 0px;
+    flex-direction: row;
+}
+
+.dice-button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: filter 0.3s ease;
+}
+
+.dice-button:hover {
+    filter: brightness(80%);
+}
+
+.die {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.die label {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#dice-input {
+    width: 600px;
+    height: 40px;
+    margin: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-style: italic;
+    color: #999;
+}
+
+#dice-input:not(:placeholder-shown) {
+    color: #333;
+    font-style: normal;
+    font-family: "Roboto", sans-serif;
+}
+
+.rounded-dice-buttons {
+    border-radius: 15px;
+    height: 50px;
+    width: 100px;
+    margin: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #8ee4d7ff;
+}
+
+#nav-bar {
+    background-color: #a00404 !important;
+}
+
+.container-fluid {
+    background-color: #a00404;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+#sidebar-list {
+    position: relative;
+    margin-top: 10%;
+    display: flex;
+    overflow-y: auto;
+    max-height: 75vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease-out, visibility 0.1s ease-out, max-height 0.1s ease-out;
+}
+
+#sidebar-list.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease-in, visibility 0.1s ease-in, max-height 0.1s ease-in;
+    transition-delay: 0.5s;
+}
+
+.sidebar-list li {
+    display: flex;
+    min-height: 70px;
+    max-height: 70px;
+}
+
+.sidebar-list li button {
+    background: #8ee4d7ff;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#x-button {
+    margin-left: 20px;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+    margin-left: 0;
+}
+
+#load-button,
+#save-button {
+    position: relative;
+    right: 0;
+    align-self: center;
+    margin-right: 40px;
+    margin-top: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s ease-out, visibility 0s ease-out;
+    transition-delay: 0.6s;
+}
+
+#load-button.active,
+#save-button.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease-in, visibility 0.1s ease-in;
+    transition-delay: 0.5s;
+}
+
+.save-load-container {
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    background-color: #a00404;
+    padding-left: 0%;
+}
+
+.nav-item a {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 430px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sidebar {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        width: 75px;
+        height: 75px;
+        background: #a00404;
+        transition: clip-path 1s ease, width 1s ease, height 1s ease;
+        position: fixed;
+        z-index: 2;
+    }
+
+    #sidebar-button {
+        height: 50px;
+        width: 50px;
+        min-width: 50px;
+        margin-left: 12.5px;
+        margin-top: 0;
+    }
+
+    #sidebar-button-image {
+        height: 25px;
+        width: 25px;
+    }
+
+    #dice-calculation {
+        margin-top: 60px;
+        text-align: center;
+        width: 100vw;
+        font-size: 0.75 rem;
+        min-height: 70px;
+    }
+
+    #dice-input {
+        width: 85vw;
+        margin-top: 200px;
+        margin-bottom: 0px;
+    }
+
+    #dice-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 0px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #dice-buttons li {
+        margin-bottom: 50px;
+    }
+
+    .dice-container {
+        margin-top: 0;
+    }
+
+    #dice-total {
+        display: none;
+    }
+
+    .sidebar.active {
+        width: 100vw !important;
+    }
+
+    .save-load-container {
+        margin-left: 50px;
+    }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&amp;D Dice Roller</title>
+    <link rel="icon" href="../images/dice icon-transparent.png" id="light-scheme-icon"
+        media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../images/dice icon-inverted-transparent.png" id="dark-scheme-icon"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">D&amp;D Tools</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../pages/dice-roller.html">Dice Roller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/character-sheet.html">Character Creator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/spellbook.html">Spellbook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/items.html">Items</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/monster-manual.html">Monster Manual</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <button type="button" id="sidebar-button">
+                <img src="../images/sidebar.png" alt="Sidebar button" width="100px" height="80px"
+                    id="sidebar-button-image">
+            </button>
+            <div class="save-load-container">
+                <button type="button" id="save-button" class="rounded-dice-buttons">Save</button>
+                <button type="button" id="load-button" class="rounded-dice-buttons">Load</button>
+            </div>
+        </div>
+        <ul id="sidebar-list" class="sidebar-list"></ul>
+    </div>
+    <main id="main-dice">
+        <h1 id="dice-calculation">Click on the dice or type in the text box to enter your roll.</h1>
+        <h1 id="dice-total">‎ </h1>
+        <div class="dice-container">
+            <ul id="dice-buttons">
+                <li>
+                    <div class="die">
+                        <img src="../images/d20-transparent.png" alt="d20" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d20" class="dice-label">0</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="die">
+                        <img src="../images/d12-transparent.png" alt="d12" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d12" class="dice-label">0</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="die">
+                        <img src="../images/d10-transparent.png" alt="d10" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d10" class="dice-label">0</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="die">
+                        <img src="../images/d8-transparent.png" alt="d8" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d8" class="dice-label">0</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="die">
+                        <img src="../images/d6-transparent.png" alt="d6" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d6" class="dice-label">0</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="die">
+                        <img src="../images/d4-transparent.png" alt="d4" width="100px" height="100px"
+                            class="dice-button">
+                        <label for="d4" class="dice-label">0</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <input type="text" id="dice-input" placeholder="Enter dice here. Ex: 1d12+3d8+2d6 or 2D6 + 9 + 1D12">
+        <div class="roll-and-save-buttons">
+            <button type="button" id="roll-button" class="rounded-dice-buttons">Roll</button>
+            <button type="button" id="save-roll-button" class="rounded-dice-buttons">Save</button>
+        </div>
+        <button type="button" id="reset-button" class="rounded-dice-buttons">Reset</button>
+    </main>
+    <script src="../scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

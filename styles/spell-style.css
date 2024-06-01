@@ -1,0 +1,179 @@
+main {
+    display: grid;
+    justify-content: center;
+}
+
+#info {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.tableContainer {
+    width: 40vw;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+
+}
+
+#table2 {
+    width: auto;
+}
+
+.table1 {
+    width: 40vw;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.timeCol {
+    max-width: 50px;
+}
+
+.table1 {
+    width: auto;
+}
+
+.table1 th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table1 td {
+    border-top: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+.table1 tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.spell-info {
+    margin-right: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 30vw;
+    background-color: #f2f2f2;
+    max-height: 80vh;
+}
+
+.spell-description {
+    font-size: 1em;
+}
+
+.abjuration {
+    color: #1e00ff;
+}
+
+.conjuration {
+    color: #9c5c24;
+}
+
+.divination {
+    color: #7c7c7c;
+}
+
+.enchantment {
+    color: #ff00ff;
+}
+
+.evocation {
+    color: #ff0000;
+}
+
+.illusion {
+    color: #8c00ff;
+}
+
+.necromancy {
+    color: #00ff00;
+}
+
+.transmutation {
+    color: #ff7c00;
+}
+
+.spell-name {
+    font-weight: bold;
+}
+
+.spell-info a {
+    color: blue;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.spell-info a:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .tableContainer {
+        grid-area: table;
+    }
+
+    .spell-info {
+        grid-area: info;
+    }
+
+    #info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "table"
+            "info";
+    }
+
+    .tableContainer {
+        width: 90vw;
+    }
+
+    .spell-info {
+        margin-left: 20px;
+        width: 90vw;
+    }
+
+    .tableContainer {
+        max-height: 30vh;
+    }
+
+    .spell-info {
+        max-height: 60vh;
+    }
+
+    .table1 tr>*:nth-child(5) {
+        display: none;
+    }
+
+    .table1 tr>*:nth-child(4) {
+        display: none;
+    }
+}
+
+#nav-bar {
+    background-color: #a00404 !important;
+}
+
+.nav-item a {
+    font-size: 1.5rem;
+}

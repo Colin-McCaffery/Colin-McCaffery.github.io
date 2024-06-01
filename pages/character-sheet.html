@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Sheet Creator</title>
+    <link rel="icon" href="images/dice icon-transparent.png" id="light-scheme-icon"
+        media="(prefers-color-scheme: light)">
+    <link rel="icon" href="images/dice icon-inverted-transparent.png" id="dark-scheme-icon"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../styles/sheet-style.css">
+    <link rel="stylesheet" href="../styles/spell-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">D&amp;D Tools</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/dice-roller.html">Dice Roller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../pages/character-sheet.html">Character Creator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/spellbook.html">Spellbook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/items.html">Items</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/monster-manual.html">Monster Manual</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="sheet-main">
+        <div class="main-container">
+            <div class="skills-group">
+                <h1 id="proficiency-h1">Skill Proficiencies</h1>
+                <div class="skill-dropdowns" id="skill-dropdowns"></div>
+                <h1 id="expertise-h1">Expertise</h1>
+                <div class="expertise-dropdowns" id="expertise-dropdowns"></div>
+            </div>
+            <div class="form-group">
+                <label for="level">Level:</label>
+                <input type="number" id="level" name="level" min="1" max="20" required>
+                <label for="character-name">Character Name:</label>
+                <input type="text" id="character-name" name="character-name" required>
+                <label for="background">Background:</label>
+                <select id="background" name="background" required></select>
+                <label for="race">Race:</label>
+                <select id="race" name="race" required></select>
+                <label for="subrace">Subrace:</label>
+                <select id="subrace" name="subrace" required></select>
+                <label for="class">Class:</label>
+                <select id="class" name="class" required></select>
+                <label for="subclass">Subclass:</label>
+                <select id="subclass" name="subclass" required></select>
+                <label for="alignment">Alignment:</label>
+                <input type="text" id="alignment" name="alignment" required>
+                <label for="languages">Languages:</label>
+                <input type="text" id="languages" name="languages" required>
+                <label for="equipment">Equipment:</label>
+                <input type="text" id="equipment" name="equipment">
+                <label for="other-features">Other Features:</label>
+                <textarea id="other-features" name="other-features"></textarea>
+                <label for="spellcaster">Spellcaster:</label>
+                <input type="checkbox" id="spellcaster" name="spellcaster">
+                <button type="submit" id="save-button">Save Character</button>
+                <input type="file" id="fileInput" style="display: none">
+                <button type="button" id="loadButton">Load Character</button>
+            </div>
+            <div class="stats-group">
+                <h1>Stats</h1>
+                <h1 id="points-used">Points Used: 0/27</h1>
+                <div class="point-buy-group" id="point-buy-group">
+                    <div class="strength" id="strength">
+                        <button type="button">⌃</button>
+                        <h1 id="strength-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="dexterity" id="dexterity">
+                        <button type="button">⌃</button>
+                        <h1 id="dexterity-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="constitution" id="constitution">
+                        <button type="button">⌃</button>
+                        <h1 id="constitution-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="intelligence" id="intelligence">
+                        <button type="button">⌃</button>
+                        <h1 id="intelligence-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="wisdom" id="wisdom">
+                        <button type="button">⌃</button>
+                        <h1 id="wisdom-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="charisma" id="charisma">
+                        <button type="button">⌃</button>
+                        <h1 id="charisma-h1">8</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                </div>
+                <h1>Other Bonuses</h1>
+                <div class="other-stat-bonuses-group" id="other-stat-bonuses-group">
+                    <div class="strength-bonus" id="strength-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="strength-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="dexterity-bonus" id="dexterity-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="dexterity-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="constitution-bonus" id="constitution-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="constitution-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="intelligence-bonus" id="intelligence-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="intelligence-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="wisdom-bonus" id="wisdom-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="wisdom-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                    <div class="charisma-bonus" id="charisma-bonus">
+                        <button type="button">⌃</button>
+                        <h1 id="charisma-bonus-h1">+0</h1>
+                        <button type="button">⌄</button>
+                    </div>
+                </div>
+                <br>
+                <h1>Racial Stat Bonuses</h1>
+                <div class="racial-stat-group" id="racial-stat-group">
+                    <div class="strength-racial" id="strength-racial">
+                        <h1 id="strength-racial-h1">+0</h1>
+                    </div>
+                    <div class="dexterity-racial" id="dexterity-racial">
+                        <h1 id="dexterity-racial-h1">+0</h1>
+                    </div>
+                    <div class="constitution-racial" id="constitution-racial">
+                        <h1 id="constitution-racial-h1">+0</h1>
+                    </div>
+                    <div class="intelligence-racial" id="intelligence-racial">
+                        <h1 id="intelligence-racial-h1">+0</h1>
+                    </div>
+                    <div class="wisdom-racial" id="wisdom-racial">
+                        <h1 id="wisdom-racial-h1">+0</h1>
+                    </div>
+                    <div class="charisma-racial" id="charisma-racial">
+                        <h1 id="charisma-racial-h1">+0</h1>
+                    </div>
+                </div>
+                <h1>Stat Total</h1>
+                <div class="stat-total-group" id="stat-total-group">
+                    <div class="strength-total" id="strength-total">
+                        <h1 id="strength-total-h1">8</h1>
+                    </div>
+                    <div class="dexterity-total" id="dexterity-total">
+                        <h1 id="dexterity-total-h1">8</h1>
+                    </div>
+                    <div class="constitution-total" id="constitution-total">
+                        <h1 id="constitution-total-h1">8</h1>
+                    </div>
+                    <div class="intelligence-total" id="intelligence-total">
+                        <h1 id="intelligence-total-h1">8</h1>
+                    </div>
+                    <div class="wisdom-total" id="wisdom-total">
+                        <h1 id="wisdom-total-h1">8</h1>
+                    </div>
+                    <div class="charisma-total" id="charisma-total">
+                        <h1 id="charisma-total-h1">8</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spellcasting-area" id="spellcasting-area">
+            <div class="spell-choices-and-slots" id="spell-choices-and-slots">
+                <div class="spell-dropdowns" id="spell-dropdowns"></div>
+                <div class="spell-slots" id="spell-slots">
+                    <h1>Spell Slots</h1>
+                    <div class="spell-slot-group" id="spell-slot-group">
+                        <div class="first-level-slot" id="first-level-slot">
+                            <h1 id="first-level-slot-h1">1st</h1>
+                            <h1 id="first-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="second-level-slot" id="second-level-slot">
+                            <h1 id="second-level-slot-h1">2nd</h1>
+                            <h1 id="second-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="third-level-slot" id="third-level-slot">
+                            <h1 id="third-level-slot-h1">3rd</h1>
+                            <h1 id="third-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="fourth-level-slot" id="fourth-level-slot">
+                            <h1 id="fourth-level-slot-h1">4th</h1>
+                            <h1 id="fourth-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="fifth-level-slot" id="fifth-level-slot">
+                            <h1 id="fifth-level-slot-h1">5th</h1>
+                            <h1 id="fifth-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="sixth-level-slot" id="sixth-level-slot">
+                            <h1 id="sixth-level-slot-h1">6th</h1>
+                            <h1 id="sixth-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="seventh-level-slot" id="seventh-level-slot">
+                            <h1 id="seventh-level-slot-h1">7th</h1>
+                            <h1 id="seventh-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="eighth-level-slot" id="eighth-level-slot">
+                            <h1 id="eighth-level-slot-h1">8th</h1>
+                            <h1 id="eighth-level-slot-num-h1">0</h1>
+                        </div>
+                        <div class="ninth-level-slot" id="ninth-level-slot">
+                            <h1 id="ninth-level-slot-h1">9th</h1>
+                            <h1 id="ninth-level-slot-num-h1">0</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="info">
+                <div class="tableContainer">
+                    <table class="table">
+                        <colgroup>
+                            <col class="nameCol">
+                            <col class="schoolCol">
+                            <col class="levelCol">
+                            <col class="timeCol">
+                            <col class="rangeCol">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="name">Name</th>
+                                <th class="school">School</th>
+                                <th class="level">Level</th>
+                                <th class="time">Time</th>
+                                <th class="range">Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="spell-info">
+                    <h3 class="spell-name">Spell</h3>
+                    <p class="spell-description">Click on a spell to display its details here!</p>
+                    <div class="spell-details">
+                        <p><strong>Casting Time:</strong> <span class="time-span"></span></p>
+                        <p><strong>Range:</strong> <span class="range-span"></span></p>
+                        <p><strong>Duration:</strong> <span class="duration-span"></span></p>
+
+                        <p><strong>Classes:</strong> <span class="classes-span"></span></p>
+                        <div id="class-info"></div>
+                        <p><strong>Level:</strong> <span class="level-span"></span></p>
+                        <p><strong>School:</strong> <span class="school-span"></span></p>
+                        <p>Source: <a href="" class="source"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../scripts/spell-script.js"></script>
+    <script src="../scripts/sheet-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

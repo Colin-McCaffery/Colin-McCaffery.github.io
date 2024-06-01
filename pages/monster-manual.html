@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&amp;D Monster Manual</title>
+  <link rel="icon" href="../images/dice icon-transparent.png" id="light-scheme-icon"
+    media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../images/dice icon-inverted-transparent.png" id="dark-scheme-icon"
+    media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="../styles/monster-style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">D&amp;D Tools</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/dice-roller.html">Dice Roller</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/character-sheet.html">Character Creator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/spellbook.html">Spellbook</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/items.html">Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="../pages/monster-manual.html">Monster Manual</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div id="info">
+      <div class="tableContainer">
+        <table class="table">
+          <colgroup>
+            <col class="nameCol">
+            <col class="typeCol">
+            <col class="crCol">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="name">Name</th>
+              <th class="type">Type</th>
+              <th class="cr">CR</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="monster-info">
+        <div class="monster-header">
+          <div>
+            <h3 class="monster-name"></h3>
+            <h4><span id="monsterType"></span> <span id="alignment"></span></h4>
+          </div>
+          <img src="../images/placeholder.webp" alt="placeholder">
+        </div>
+        <hr>
+        <p><strong>Armor Class:</strong> <span id="armor"></span></p>
+        <p><strong>Hit Points: </strong> <span id="hp"></span> (<a class="link-primary" id="dice"></a>)</p>
+        <p><strong>Speed: </strong> <span id="speed"></span></p>
+        <hr>
+        <div class="monster-stats">
+          <div class="statbox">
+            <h6>STR</h6>
+            <span id="str" class="stat"></span>
+          </div>
+          <div class="statbox">
+            <h6>DEX</h6>
+            <span id="dex" class="stat"></span>
+          </div>
+          <div class="statbox">
+            <h6>CON</h6>
+            <span id="con" class="stat"></span>
+          </div>
+          <div class="statbox">
+            <h6>INT</h6>
+            <span id="int" class="stat"></span>
+          </div>
+          <div class="statbox">
+            <h6>WIS</h6>
+            <span id="wis" class="stat"></span>
+          </div>
+          <div class="statbox">
+            <h6>CHA</h6>
+            <span id="cha" class="stat"></span>
+          </div>
+        </div>
+        <hr>
+
+        <p><strong>Skills: </strong><span id="skills-span"></span></p>
+        <p><strong>Senses: </strong><span id="senses-span"></span></p>
+        <p><strong>Languages: </strong><span id="languages-span"></span></p>
+        <p><strong>Challenge: </strong><span id="challenges-span"></span></p>
+        <h3>Description</h3>
+        <hr>
+        <p class="monster-description"></p>
+        <h3>Actions</h3>
+        <hr>
+
+        <div class="monster-actions">
+        </div>
+        <p>Source: <a href="" class="source"></a></p>
+      </div>
+    </div>
+  </main>
+  <script src="../scripts/monster-script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+main {
+  display: grid;
+  justify-content: center;
+}
+
+#info {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dice:hover {
+  cursor: pointer;
+}
+
+
+.crCol {
+  display: flex;
+  align-items: center;
+}
+
+.tableContainer {
+  width: 30vw;
+  margin-right: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 20px;
+
+}
+
+.table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table td {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+}
+
+col.crCol {
+  text-align: center;
+}
+
+
+.table tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.monster-info {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 40vw;
+  background-color: #f2f2f2;
+  max-height: 80vh;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.monster-description {
+  font-size: 1em;
+}
+
+.monster-stats {
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.statbox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.monster-info p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  padding: 0;
+  font-style: normal;
+  font-weight: 100;
+}
+
+.statbox h6 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+main hr {
+  width: 100%;
+  border-top: 2px solid orange;
+}
+
+h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.monster-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.monster-header img {
+  border-radius: 50%;
+  right: 15%;
+  width: 15%;
+  border: 3px solid orange;
+}
+
+.action {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.monster-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-name {
+  font-style: bold;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .tableContainer {
+    grid-area: table;
+  }
+
+  .monster-info {
+    grid-area: info;
+  }
+
+  #info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "table"
+      "info";
+  }
+
+  .tableContainer {
+    width: 90vw;
+    margin-right: 0;
+
+  }
+
+
+  .monster-info {
+    width: 90vw;
+    max-height: 60vh;
+  }
+
+  .tableContainer {
+    max-height: 30vh;
+  }
+}
+
+#nav-bar {
+  background-color: #a00404 !important;
+}
+
+.nav-item a {
+  font-size: 1.5rem;
+}
