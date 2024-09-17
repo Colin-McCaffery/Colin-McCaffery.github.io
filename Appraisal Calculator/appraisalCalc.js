@@ -19,6 +19,11 @@ function calculateAppraisal() {
 function calculate(value, diff) {
     const resultElement = document.getElementById('result');
 
+    if (diff >= 3) {
+        resultElement.textContent = `Player has failed to appraise the item and has no idea of its value.`;
+        return;
+    }
+
     if (diff <= 0) {
         resultElement.textContent = `Player has perfectly appraised this item and revealed its true value of ${value} gp!`;
         return;
