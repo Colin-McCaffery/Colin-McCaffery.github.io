@@ -16,10 +16,14 @@ function calculateAppraisal() {
     calculate(adjustedValue, diff);
 }
 
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function calculate(value, diff) {
     const resultElement = document.getElementById('result');
 
-    if (diff >= 3) {
+    if (diff > 3) {
         resultElement.textContent = `Player has failed to appraise the item and has no idea of its value.`;
         return;
     }
@@ -32,10 +36,10 @@ function calculate(value, diff) {
     var range = Math.floor(value * diff);
     var min = 0;
     var max = 0;
-    while (min > value || max < value) {
-        min = Math.floor(Math.random() * value);
-        var max = min + range;
+    while (min <= 0) {
+        min = randomIntFromInterval(value - range, value);
     }
+    max = min + range;
 
     resultElement.textContent = `The item has an appraised value of ${min}-${max} gp.`;
 }
