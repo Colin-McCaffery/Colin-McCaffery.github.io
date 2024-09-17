@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appraisal Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="appraisalCalc.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Appraisal Calculator</h1>
+        <div class="form-group">
+            <label for="value">True value of the item (gp):</label>
+            <input type="number" id="value" placeholder="Enter value">
+        </div>
+        <div class="form-group">
+            <label for="modifier">Quality modifier (%):</label>
+            <input type="number" id="modifier" placeholder="Enter modifier">
+        </div>
+        <div class="form-group">
+            <label for="dc">DC of the appraisal:</label>
+            <input type="number" id="dc" placeholder="Enter DC">
+        </div>
+        <div class="form-group">
+            <label for="roll">Player's appraisal roll:</label>
+            <input type="number" id="roll" placeholder="Enter roll">
+        </div>
+        <button onclick="calculateAppraisal()">Calculate</button>
+        <p id="result"></p>
+    </div>
+</body>
+
+</html>
