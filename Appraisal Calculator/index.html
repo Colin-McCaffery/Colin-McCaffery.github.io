@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appraisal Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="appraisalCalc.js" defer></script>
 </head>
 
@@ -13,7 +14,7 @@
     <div class="container">
         <h1>Appraisal Calculator</h1>
         <div class="form-group">
-            <label for="value">True value of the item (gp):</label>
+            <label for="value">True unmodified value of the item (gp):</label>
             <input type="number" id="value" placeholder="Enter value">
         </div>
         <div class="form-group">
@@ -29,7 +30,9 @@
             <input type="number" id="roll" placeholder="Enter roll">
         </div>
         <button onclick="calculateAppraisal()">Calculate</button>
+        <button onclick="runSimulations()">Run 10000 Simulations</button>
         <p id="result"></p>
+        <canvas id="chart" width="400" height="200"></canvas>
     </div>
 </body>
 
