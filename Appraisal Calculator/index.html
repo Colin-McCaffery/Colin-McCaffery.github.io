@@ -14,23 +14,41 @@
     <div class="container">
         <h1>Appraisal Calculator</h1>
         <div class="form-group">
-            <label for="value">True unmodified value of the item (gp):</label>
-            <input type="number" id="value" placeholder="Enter value">
+            <label for="appraisal-value">True unmodified value of the item (gp):</label>
+            <input type="number" id="appraisal-value" placeholder="Enter value">
         </div>
         <div class="form-group">
-            <label for="modifier">Quality modifier (%):</label>
-            <input type="number" id="modifier" placeholder="Enter modifier">
+            <label for="appraisal-modifier">Quality modifier (%):</label>
+            <input type="number" id="appraisal-modifier" placeholder="Enter modifier">
         </div>
         <div class="form-group">
-            <label for="dc">DC of the appraisal:</label>
-            <input type="number" id="dc" placeholder="Enter DC">
+            <label for="appraisal-dc">DC of the appraisal:</label>
+            <input type="number" id="appraisal-dc" placeholder="Enter DC">
         </div>
         <div class="form-group">
-            <label for="roll">Player's appraisal roll:</label>
-            <input type="number" id="roll" placeholder="Enter roll">
+            <label for="appraisal-roll">Player's appraisal roll:</label>
+            <input type="number" id="appraisal-roll" placeholder="Enter roll">
         </div>
         <button onclick="calculateAppraisal()">Calculate</button>
-        <p id="result"></p>
+        <p id="appraisal-result" class="results">Placeholder text</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="container">
+        <h1>Bartering Calculator</h1>
+        <div class="form-group">
+            <label for="listed-price">Listed price (gp):</label>
+            <input type="number" id="listed-price" placeholder="Enter price">
+        </div>
+        <div class="form-group">
+            <label for="real-price">True value:</label>
+            <input type="number" id="real-price" placeholder="Enter value">
+        </div>
+        <div class="form-group">
+            <label for="base-dc">Base DC:</label>
+            <input type="number" id="base-dc" placeholder="Enter DC">
+        </div>
+        <button onclick="calculateBarterDC()">Calculate</button>
+        <p id="barter-result" class="results">Placeholder text</p>
     </div>
 </body>
 
