@@ -25,7 +25,7 @@ function calculateBarterDC() {
     var increment = Math.floor(value * 0.05);
     const resultElement = document.getElementById('barter-result');
     resultElement.style.opacity = 100;
-    var total = base + 20 - (price / increment);
+    var total = Math.floor(base + 20 - (price / increment));
     resultElement.textContent = `The bartering DC is ${total}.`;
 }
 
