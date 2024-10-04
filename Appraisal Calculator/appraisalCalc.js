@@ -23,9 +23,15 @@ function calculateBarterDC() {
     var value = parseInt(document.getElementById('real-price').value);
     var base = parseInt(document.getElementById('base-dc').value);
     var increment = Math.floor(value * 0.05);
+    if (increment < 1) {
+        increment = 1;
+    }
     const resultElement = document.getElementById('barter-result');
     resultElement.style.opacity = 100;
     var total = Math.floor(base + ((price / increment) - 20));
+    if (total < 1) {
+        total = 1;
+    }
     resultElement.textContent = `The bartering DC is ${total}.`;
 }
 
@@ -54,5 +60,5 @@ function calculate(value, diff) {
     }
     max = min + range;
 
-    resultElement.textContent = `The item has an appraised value of ${min}-${max} gp.`;
+    resultElement.textContent = `The item has an appraised value of ${min}-${max} gp. The true value is ${value} gp.`;
 }
