@@ -1,8 +1,9 @@
+const player = document.getElementById("player");
 var jumping = true;
 var rising = false;
+var planted = false;
 
 window.onload = () => {
-    updateGround();
     greeting();
     setInterval(applyGravity, 20);
 }
@@ -24,12 +25,13 @@ function greeting() {
                     document.getElementById("start-game").style.display = "none";
                     start();
                 });
-            }, 7500);
-        }, 7500);
+            }, 75);
+        }, 75);
     });
 }
 
 var keysPressed = {};
+var gameStarted = false;
 
 function handleKeyDown(event) {
     keysPressed[event.key] = true;
@@ -45,7 +47,7 @@ function jump() {
         jumping = true;
         rising = true;
         const player = document.getElementById("player");
-        let jumpSpeed = window.innerHeight * 0.025;
+        let jumpSpeed = window.innerHeight * 0.015;
         const jumpInterval = setInterval(() => {
             if (rising) {
                 const playerStyle = window.getComputedStyle(player);
@@ -63,35 +65,42 @@ function jump() {
 }
 
 function movePlayer() {
-    const player = document.getElementById("player");
     const playerStyle = window.getComputedStyle(player);
-    const playerLeft = parseFloat(playerStyle.left);
+    const playerPos = parseFloat(playerStyle.left);
     const screenWidth = window.innerWidth;
     const moveDistance = screenWidth * 0.0015;
     if (keysPressed["a"] || keysPressed["ArrowLeft"]) {
-        player.style.left = `${playerLeft - moveDistance}px`;
+        player.style.left = `${playerPos - moveDistance}px`;
     }
     if (keysPressed["d"] || keysPressed["ArrowRight"]) {
-        player.style.left = `${playerLeft + moveDistance}px`;
+        player.style.left = `${playerPos + moveDistance}px`;
     }
     if (keysPressed["w"] || keysPressed[" "] || keysPressed["ArrowUp"]) {
         jump();
     }
+    showElements(playerPos);
 }
 
-function getElementsWithUnderscore() {
-    const elements = document.body.getElementsByTagName("*");
-    const underscoreElements = [];
-    for (let element of elements) {
-        if (element.textContent.includes("_")) {
-            underscoreElements.push(element);
-        }
+function showElements(playerPos) {
+    // farm
+    const screenWidth = window.innerWidth;
+    if (gameStarted && playerPos >= screenWidth * 0.3 && playerPos <= screenWidth * 0.4) {
+        document.getElementById("farm-text").style.display = "inline-block";
+        document.getElementById("farm-plant-button-div").style.display = "inline-block";
+        document.getElementById("farm-plant-button").style.display = "inline-block";
+        document.getElementById("farm-buy-button-div").style.display = "inline-block";
+        document.getElementById("farm-buy-button").style.display = "inline-block";
+        document.getElementById("farm").style.display = "inline-block";
+        document.getElementById("wheat-seeds-label-1").style.display = "inline-block";
+        document.getElementById("wheat-seeds").style.display = "inline-block";
+        document.getElementById("wheat-seeds-label-2").style.display = "inline-block";
+        document.getElementById("planted-wheat-seeds-label-1").style.display = "inline-block";
+        document.getElementById("planted-wheat-seeds").style.display = "inline-block";
+        document.getElementById("planted-wheat-seeds-label-2").style.display = "inline-block";
     }
-    return underscoreElements;
 }
 
 function applyGravity() {
-    console.log(jumping);
     if (!rising) {
         const player = document.getElementById("player");
         const playerStyle = window.getComputedStyle(player);
@@ -99,52 +108,39 @@ function applyGravity() {
         const screenHeight = window.innerHeight;
         const fallSpeed = screenHeight * 0.01;
         const playerRect = player.getBoundingClientRect();
-        const underscoreElements = getElementsWithUnderscore();
+        const groundElements = document.querySelectorAll("body *");
         let isColliding = false;
         let targetBottom = playerBottom - fallSpeed;
-        // collision detection to stop gravity
-        for (var element of underscoreElements) {
+
+        // collision detection with underscores
+        groundElements.forEach(element => {
+            const elementText = element.textContent;
             const elementRect = element.getBoundingClientRect();
-            if (playerRect.bottom >= elementRect.top && playerRect.bottom <= elementRect.bottom &&
-                playerRect.right >= elementRect.left && playerRect.left <= elementRect.right) {
-                isColliding = true;
-                jumping = false;
-                targetBottom = screenHeight - elementRect.bottom;
-                break;
+            for (let i = 0; i < elementText.length; i++) {
+                if (elementText[i] === "_") {
+                    const charX = elementRect.left + (i / elementText.length) * elementRect.width;
+                    const charY = elementRect.top + elementRect.height;
+                    if (playerRect.bottom >= charY && playerRect.left <= charX + 8 && playerRect.right >= charX) {
+                        isColliding = true;
+                        jumping = false;
+                        targetBottom = screenHeight - charY;
+                        break;
+                    }
+                }
             }
-        }
+        });
+
         if (!isColliding) {
             player.style.bottom = `${playerBottom - fallSpeed}px`;
         } else {
             // snap to ground
             const currentBottom = parseFloat(player.style.bottom);
-            // step for rate of snapping
             const step = (targetBottom - currentBottom) * 0.5;
             player.style.bottom = `${currentBottom + step}px`;
         }
     }
 }
 
-function updateGround() {
-    const measurement = document.createElement("span");
-    measurement.style.position = "absolute";
-    measurement.style.whiteSpace = "nowrap";
-    measurement.style.visibility = "hidden";
-    measurement.style.fontFamily = "monospace";
-    measurement.style.fontSize = "16px";
-    measurement.textContent = "_";
-    document.body.appendChild(measurement);
-    const charWidth = measurement.offsetWidth;
-    document.body.removeChild(measurement);
-    const groundWidth = Math.ceil(window.innerWidth / charWidth) + Math.ceil(window.innerWidth / 1000);
-    const ground = "_".repeat(groundWidth);
-    document.getElementById("ground").textContent = ground;
-    document.getElementById("ground").style.fontFamily = "monospace";
-    document.getElementById("ground").style.fontSize = "16px";
-    document.getElementById("ground").style.whiteSpace = "pre";
-}
-
-window.addEventListener("resize", updateGround);
 window.addEventListener("keydown", handleKeyDown);
 window.addEventListener("keyup", handleKeyUp);
 // move player every 20 milliseconds
@@ -156,8 +152,14 @@ setInterval(movePlayer, 20);
 
 function start() {
     // set all elements of the money class to inline block display
-    const money = document.getElementsByClassName("money");
+    gameStarted = true;
+    const money = document.getElementsByClassName("money-stats");
     for (var element of money) {
         element.style.display = "inline-block";
     }
+    document.getElementById("farm-plant-button").addEventListener("click", () => {
+        if (document.getElementById("wheat-seeds").textContent > 0) {
+
+        }
+    });
 }

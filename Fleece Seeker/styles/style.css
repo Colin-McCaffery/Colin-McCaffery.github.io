@@ -31,23 +31,73 @@ button {
 #player {
     position: absolute;
     left: 50%;
-    bottom: 50%;
+    bottom: 20%;
 }
 
-#platform {
+#star {
     position: absolute;
-    bottom: 25%;
-    right: 40%;
-    font-family: monospace;
-    font-size: 16px;
-    white-space: pre;
+    bottom: 20%;
+    left: 50%;
 }
 
 #start-game {
     display: none;
 }
 
-.money {
+.money-stats {
     font-size: 1.5em;
     display: none;
+}
+
+.farm-stats {
+    font-size: 1.5em;
+    display: none;
+}
+
+.farm {
+    display: none;
+}
+
+#farm-text {
+    position: absolute;
+    bottom: 27.5%;
+    left: 32.25%;
+    font-family: monospace;
+    font-size: 1.5em;
+    white-space: pre;
+}
+
+#farm-plant-button-div {
+    position: absolute;
+    bottom: 35%;
+    left: 34.5%;
+}
+
+#farm-plant-button {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1em;
+    white-space: pre;
+}
+
+#farm {
+    position: absolute;
+    bottom: 19.75%;
+    left: 30%;
+    font-family: monospace;
+    font-size: 16px;
+    white-space: pre;
+}
+
+#farm-buy-button-div {
+    position: absolute;
+    bottom: 40%;
+    left: 34.5%;
+}
+
+#farm-buy-button {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1em;
+    white-space: pre;
 }

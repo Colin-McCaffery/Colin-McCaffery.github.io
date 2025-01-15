@@ -10,20 +10,65 @@
 </head>
 
 <body>
+
     <!-- begin tutorial and basics -->
-    <div id="greeting">Hello! Welcome to Fleece Seeker.
-        This is a story about someone who couldn't decide between becoming rich and becoming an adventurer, so they did
-        both.
+
+    <div id="greeting">Hello! Welcome to Fleece Seeker. You play as a humble farmer. Nothing more, nothing less.</div>
+    <div id="ground">
+        _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
     </div>
-    <div id="ground"></div>
+    <pre id="star">                  x
+                 xxx
+                 x x
+                x   x
+                x   x
+xxxxx x x  x   x    xx  x    x    x   x x
+ xxx          x      x                    x xxx
+    x x               x                   x x
+        x    x         x                x
+          x x                        x
+            x
+           x   x         x     x
+         x               x xx
+                   x x
+         x        x  x      x
+        x      _       x x   x
+       x    _              x  x
+      x   _                  xxx
+      ____                      xx
+     __                                        </pre>
     <div id="player">O</div>
     <button type="button" id="greeting-next">Cool</button>
     <button type="button" id="start-game">I was born for this</button>
+
     <!-- end tutorial and basics -->
+
     <!-- start actual game -->
-    <span id="money-label" class="money">You have</span>
-    <span id="money" class="money">0</span>
-    <span id="money-label-gold" class="money">gold</span>
+
+    <!-- money -->
+    <div id="money-label" class="money-stats">You have</div>
+    <span id="money" class="money-stats">10</span>
+    <span id="money-label-gold" class="money-stats">gold</span>
+    <div></div>
+    <p></p>
+    <!-- farm stuff -->
+    <span id="wheat-seeds-label-1" class="farm-stats">You have</span>
+    <span id="wheat-seeds" class="farm-stats">0</span>
+    <span id="wheat-seeds-label-2" class="farm-stats">wheat seeds</span>
+    <div></div>
+    <span id="planted-wheat-seeds-label-1" class="farm-stats">You have</span>
+    <span id="planted-wheat-seeds" class="farm-stats">0</span>
+    <span id="planted-wheat-seeds-label-2" class="farm-stats">wheat seeds planted</span>
+    <!-- farm -->
+    <div id="farm-text" class="farm">The Farm</div>
+    <div id="farm-plant-button-div" class="farm">
+        <button type="button" id="farm-plant-button" class="farm">Plant Wheat Seeds</button>
+    </div>
+    <div id="farm-buy-button-div" class="farm">
+        <button type="button" id="farm-buy-button" class="farm">Buy Wheat Seeds (1g)</button>
+    </div>
+    <div id="farm" class="farm">wwwwwwwwwwwwwwwwwwww</div>
+    <!-- script -->
     <script src="scripts/script.js"></script>
 </body>
 
