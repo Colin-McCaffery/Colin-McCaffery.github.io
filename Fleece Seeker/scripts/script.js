@@ -1,6 +1,7 @@
 window.onload = () => {
     updateGround();
     greeting();
+    setInterval(applyGravity, 20);
 }
 
 function greeting() {
@@ -29,13 +30,47 @@ function movePlayer() {
     const playerStyle = window.getComputedStyle(player);
     const playerLeft = parseFloat(playerStyle.left);
     const screenWidth = window.innerWidth;
-    const moveDistance = screenWidth * 0.0015;
+    const moveDistance = screenWidth * 0.0015; // 1% of the screen width
 
     if (keysPressed["a"] || keysPressed["ArrowLeft"]) {
         player.style.left = `${playerLeft - moveDistance}px`;
     }
     if (keysPressed["d"] || keysPressed["ArrowRight"]) {
         player.style.left = `${playerLeft + moveDistance}px`;
+    }
+}
+
+function getElementsWithUnderscore() {
+    const elements = document.body.getElementsByTagName("*");
+    const underscoreElements = [];
+    for (let element of elements) {
+        if (element.textContent.includes("_")) {
+            underscoreElements.push(element);
+        }
+    }
+    return underscoreElements;
+}
+
+function applyGravity() {
+    const player = document.getElementById("player");
+    const playerStyle = window.getComputedStyle(player);
+    const playerBottom = parseFloat(playerStyle.bottom);
+    const screenHeight = window.innerHeight;
+    const fallSpeed = screenHeight * 0.005;
+    const playerRect = player.getBoundingClientRect();
+    const underscoreElements = getElementsWithUnderscore();
+    let isColliding = false;
+    // collision detection to stop gravity
+    for (var element of underscoreElements) {
+        const elementRect = element.getBoundingClientRect();
+        if (playerRect.bottom >= elementRect.bottom && playerRect.bottom <= elementRect.bottom &&
+            playerRect.right >= elementRect.left && playerRect.left <= elementRect.right) {
+            isColliding = true;
+            console.log("colliding");
+        }
+    }
+    if (!isColliding) {
+        player.style.bottom = `${playerBottom - fallSpeed}px`;
     }
 }
 
@@ -61,4 +96,5 @@ function updateGround() {
 window.addEventListener("resize", updateGround);
 window.addEventListener("keydown", handleKeyDown);
 window.addEventListener("keyup", handleKeyUp);
+// move player every 20 milliseconds
 setInterval(movePlayer, 20);

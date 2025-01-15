@@ -6,7 +6,7 @@
 #player {
     position: absolute;
     left: 50%;
-    bottom: 20%;
+    bottom: 50%;
 }
 
 #greeting {
@@ -27,4 +27,13 @@
     font-size: 1em;
     color: black;
     text-align: center;
+}
+
+#platform {
+    position: absolute;
+    bottom: 25%;
+    right: 40%;
+    font-family: monospace;
+    font-size: 16px;
+    white-space: pre;
 }
