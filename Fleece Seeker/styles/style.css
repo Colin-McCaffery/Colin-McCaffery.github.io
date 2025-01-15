@@ -1,0 +1,30 @@
+#ground {
+    position: absolute;
+    bottom: 20%;
+}
+
+#player {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+}
+
+#greeting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+#greeting-next {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1em;
+    color: black;
+    text-align: center;
+}
