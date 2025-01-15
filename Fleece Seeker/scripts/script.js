@@ -66,7 +66,6 @@ function applyGravity() {
         if (playerRect.bottom >= elementRect.bottom && playerRect.bottom <= elementRect.bottom &&
             playerRect.right >= elementRect.left && playerRect.left <= elementRect.right) {
             isColliding = true;
-            console.log("colliding");
         }
     }
     if (!isColliding) {
