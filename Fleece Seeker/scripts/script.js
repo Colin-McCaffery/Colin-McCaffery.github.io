@@ -7,12 +7,24 @@ window.onload = () => {
     setInterval(applyGravity, 20);
 }
 
+// begin tutorial and physics
+
 function greeting() {
+    const greeting = document.getElementById("greeting");
     document.getElementById("greeting-next").addEventListener("click", () => {
-        document.getElementById("greeting").textContent = "By the way, that's you. Move with A/D or the left/right arrow keys.";
+        greeting.textContent = "By the way, that's you. Move with A/D or the left/right arrow keys.";
         document.getElementById("greeting-next").style.display = "none";
         setTimeout(() => {
-            document.getElementById("greeting").textContent = "Also, you can use W, Space, or the up arrow key to jump.";
+            greeting.textContent = "Also, you can use W, Space, or the up arrow key to jump.";
+            setTimeout(() => {
+                greeting.textContent = "Alright, are you ready to play the game?";
+                document.getElementById("start-game").style.display = "inline-block";
+                document.getElementById("start-game").addEventListener("click", () => {
+                    greeting.style.display = "none";
+                    document.getElementById("start-game").style.display = "none";
+                    start();
+                });
+            }, 7500);
         }, 7500);
     });
 }
@@ -137,3 +149,15 @@ window.addEventListener("keydown", handleKeyDown);
 window.addEventListener("keyup", handleKeyUp);
 // move player every 20 milliseconds
 setInterval(movePlayer, 20);
+
+// end tutorial and physics
+
+// start actual game
+
+function start() {
+    // set all elements of the money class to inline block display
+    const money = document.getElementsByClassName("money");
+    for (var element of money) {
+        element.style.display = "inline-block";
+    }
+}
