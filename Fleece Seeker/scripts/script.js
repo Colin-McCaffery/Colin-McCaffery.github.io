@@ -200,6 +200,20 @@ function start() {
         if (!plantedSeeds.includes(0)) {
             document.getElementById("farm-harvest-button").style.display = "none";
         }
+        if (document.getElementById("wheat").textContent > 0) {
+            document.getElementById("sell-button").style.display = "inline-block";
+        } else {
+            document.getElementById("sell-button").style.display = "none";
+        }
+    });
+    document.getElementById("sell-button").addEventListener("click", () => {
+        document.getElementById("money").textContent = parseInt(document.getElementById("money").textContent) + parseInt(document.getElementById("wheat").textContent);
+        document.getElementById("wheat").textContent = 0;
+        if (document.getElementById("wheat").textContent > 0) {
+            document.getElementById("sell-button").style.display = "inline-block";
+        } else {
+            document.getElementById("sell-button").style.display = "none";
+        }
     });
 }
 
@@ -209,7 +223,6 @@ function growPlants() {
             if (plantedSeeds[i] != 0 && Math.random() < 0.25) {
                 plantedSeeds[i] -= (Math.random() * 25);
                 if (plantedSeeds[i] <= 0) {
-                    console.log("harvested");
                     plantedSeeds[i] = 0;
                 }
             }

@@ -115,3 +115,10 @@ button {
     font-size: 1em;
     white-space: pre;
 }
+
+#sell-button {
+    display: none;
+    position: absolute;
+    left: 13%;
+    top: 11%;
+}
