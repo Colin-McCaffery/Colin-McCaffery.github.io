@@ -90,6 +90,10 @@ function showElements(playerPos) {
         document.getElementById("farm-plant-button").style.display = "inline-block";
         document.getElementById("farm-buy-button-div").style.display = "inline-block";
         document.getElementById("farm-buy-button").style.display = "inline-block";
+        if (plantedSeeds.includes(0)) {
+            document.getElementById("farm-harvest-button-div").style.display = "inline-block";
+            document.getElementById("farm-harvest-button").style.display = "inline-block";
+        }
         document.getElementById("farm").style.display = "inline-block";
         document.getElementById("wheat-seeds-label-1").style.display = "inline-block";
         document.getElementById("wheat-seeds").style.display = "inline-block";
@@ -97,6 +101,13 @@ function showElements(playerPos) {
         document.getElementById("planted-wheat-seeds-label-1").style.display = "inline-block";
         document.getElementById("planted-wheat-seeds").style.display = "inline-block";
         document.getElementById("planted-wheat-seeds-label-2").style.display = "inline-block";
+        document.getElementById("wheat-label-1").style.display = "inline-block";
+        document.getElementById("wheat").style.display = "inline-block";
+        document.getElementById("wheat-label-2").style.display = "inline-block";
+    } else {
+        document.getElementById("farm-plant-button-div").style.display = "none";
+        document.getElementById("farm-buy-button-div").style.display = "none";
+        document.getElementById("farm-harvest-button-div").style.display = "none";
     }
 }
 
@@ -150,6 +161,9 @@ setInterval(movePlayer, 20);
 
 // start actual game
 
+var seedCost = 1;
+var plantedSeeds = [];
+
 function start() {
     // set all elements of the money class to inline block display
     gameStarted = true;
@@ -157,9 +171,48 @@ function start() {
     for (var element of money) {
         element.style.display = "inline-block";
     }
-    document.getElementById("farm-plant-button").addEventListener("click", () => {
-        if (document.getElementById("wheat-seeds").textContent > 0) {
-
+    // buy wheat seeds button
+    document.getElementById("farm-buy-button").addEventListener("click", () => {
+        if (document.getElementById("money").textContent >= seedCost) {
+            document.getElementById("money").textContent -= seedCost;
+            document.getElementById("wheat-seeds").textContent++;
+            seedCost = Math.ceil(seedCost * 1.15);
+            document.getElementById("farm-buy-button").textContent = `Buy Wheat Seeds (${seedCost}g)`;
         }
     });
+    // plant wheat seeds button
+    document.getElementById("farm-plant-button").addEventListener("click", () => {
+        if (document.getElementById("wheat-seeds").textContent > 0) {
+            document.getElementById("wheat-seeds").textContent--;
+            document.getElementById("planted-wheat-seeds").textContent++;
+            plantedSeeds.push(Math.random() * 1000);
+        }
+    });
+    setInterval(growPlants, 100);
+    // harvest wheat seeds button
+    document.getElementById("farm-harvest-button").addEventListener("click", () => {
+        for (let i = 0; i < plantedSeeds.length; i++) {
+            if (plantedSeeds[i] == 0) {
+                plantedSeeds[i] = Math.random() * 1000;
+                document.getElementById("wheat").textContent++;
+            }
+        }
+        if (!plantedSeeds.includes(0)) {
+            document.getElementById("farm-harvest-button").style.display = "none";
+        }
+    });
+}
+
+function growPlants() {
+    if (plantedSeeds.length > 0) {
+        for (let i = 0; i < plantedSeeds.length; i++) {
+            if (plantedSeeds[i] != 0 && Math.random() < 0.25) {
+                plantedSeeds[i] -= (Math.random() * 25);
+                if (plantedSeeds[i] <= 0) {
+                    console.log("harvested");
+                    plantedSeeds[i] = 0;
+                }
+            }
+        }
+    }
 }

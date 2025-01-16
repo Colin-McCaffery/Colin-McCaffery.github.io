@@ -60,7 +60,7 @@ button {
 
 #farm-text {
     position: absolute;
-    bottom: 27.5%;
+    bottom: 28.75%;
     left: 32.25%;
     font-family: monospace;
     font-size: 1.5em;
@@ -96,6 +96,20 @@ button {
 }
 
 #farm-buy-button {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1em;
+    white-space: pre;
+}
+
+#farm-harvest-button-div {
+    position: absolute;
+    bottom: 25%;
+    left: 34.5%;
+    display: none;
+}
+
+#farm-harvest-button {
     position: absolute;
     font-family: monospace;
     font-size: 1em;
