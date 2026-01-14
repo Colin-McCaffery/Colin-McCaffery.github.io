@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Jewelry Enchantment Calculator</title>
+    <link rel="stylesheet" href="./DataTable/datatables.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tables-wrapper {
+            max-width: 1600px;
+            width: 95%;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .tables-wrapper table {
+            width: 100%;
+            background-color: #ffedc1;
+            /* cream */
+        }
+
+        .tables-wrapper table thead th {
+            text-align: center;
+        }
+
+        /* Profit cell coloring */
+        .tables-wrapper table tbody td.profit-positive {
+            background-color: #22ff22;
+            /* green tint */
+        }
+
+        .tables-wrapper table tbody td.profit-negative {
+            background-color: #ff2f2f;
+            /* red tint */
+        }
+    </style>
+    <script src="./DataTable/jquery-3.7.1.min.js"></script>
+    <script src="./DataTable/datatables.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="tables-wrapper">
+        <table id="jewelry" class="display datatable">
+            <thead>
+                <tr>
+                    <th>Item 1</th>
+                    <th>Item 1 Low Price</th>
+                    <th>Item 1 Average Price</th>
+                    <th>Item 1 High Price</th>
+                    <th>Item 1 Deal%</th>
+                    <th>Item 1 Volume</th>
+                    <th>Item 2</th>
+                    <th>Item 2 Low Price</th>
+                    <th>Item 2 Average Price</th>
+                    <th>Item 2 High Price</th>
+                    <th>Item 2 Deal%</th>
+                    <th>Item 2 Volume</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>
